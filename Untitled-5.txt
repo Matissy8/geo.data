@@ -1,0 +1,13 @@
+// lib/core/geo/geo_utils.dart
+import 'package:geolocator/geolocator.dart';
+
+bool isWithinRadius({
+  required double userLat,
+  required double userLng,
+  required double cpLat,
+  required double cpLng,
+  required double radiusM,
+}) {
+  final d = Geolocator.distanceBetween(userLat, userLng, cpLat, cpLng);
+  return d <= radiusM;
+}
